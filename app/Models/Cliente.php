@@ -12,5 +12,11 @@ class Cliente extends Model implements ModelInterface
         'data_nascimento',
         'email',
         'telefone',
+        'cep',
+        'logradouro',
+        'numero',
+        'bairro',
+        'cidade',
+        'uf',
     ];
 }

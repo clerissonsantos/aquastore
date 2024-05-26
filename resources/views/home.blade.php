@@ -58,7 +58,7 @@
         <div class="navbar-right">
             <ul class="nav navbar-nav no-borders">
                 <li class="dropdown">
-                    <a href="login.html">
+                    <a href="{{ route('logout') }}">
                         <i class="pe-7s-upload pe-rotate-90"></i>
                     </a>
                 </li>
@@ -71,18 +71,17 @@
 <aside id="menu">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div id="navigation" style="overflow: hidden; width: auto; height: 100%;">
         <ul class="nav" id="side-menu">
-            <li class="active">
-                <a href="{{ route('home') }}"> <span class="nav-label">Dashboard</span> <span class="label label-success pull-right">v.1</span> </a>
+            <li>
+                <a href="{{ route('home') }}"> <span class="nav-label"> <i class="fa fa-home text-danger"></i> Dashboard</span></a>
             </li>
             <li>
-                <a href="#"><span class="nav-label">Cadastro</span><span class="fa arrow"></span> </a>
-                <ul class="nav nav-second-level collapse" aria-expanded="false">
-                    <li><a href="{{ route('clientes.index') }}">Clientes</a></li>
-                    <li><a href="typography.html">Produtos</a></li>
-                </ul>
+                <a href="{{ route('clientes.index') }}"> <i class="fa fa-user text-success"></i> Clientes</a>
             </li>
             <li>
-                <a href="analytics.html"> <span class="nav-label">Vendas</span><span class="label label-warning pull-right">NEW</span> </a>
+                <a href="{{ route('produtos.index') }}"> <i class="fa fa-tag text-warning"></i> Produtos</a>
+            </li>
+            <li>
+                <a href="{{ route('produtos.index') }}"> <i class="fa fa-shopping-cart text-info"></i> Vendas</a>
             </li>
         </ul>
     </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 0px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 316.469px;"></div><div class="slimScrollRail" style="width: 0px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
@@ -99,22 +98,9 @@
                         <i class="fa fa-arrow-up"></i>
                     </div>
                 </a>
-
-                <div id="hbreadcrumb" class="pull-right m-t-lg">
-                    <ol class="hbreadcrumb breadcrumb">
-                        <li><a href="index.html">Dashboard</a></li>
-                        <li>
-                            <span>Tables</span>
-                        </li>
-                        <li class="active">
-                            <span>Tables design</span>
-                        </li>
-                    </ol>
-                </div>
                 <h2 class="font-light m-b-xs">
-                    Tables design
+                    {{ session('tela_atual') ?? 'Dashboard' }}
                 </h2>
-                <small>Examples of various designs of tables.</small>
             </div>
         </div>
     </div>
@@ -136,7 +122,7 @@
 </div>
 
 <!-- Vendor scripts -->
-<script async="" src="//www.google-analytics.com/analytics.js"></script><script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="{{ url('vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ url('vendor/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ url('vendor/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ url('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -154,5 +140,23 @@
 <script src="{{ url('scripts/homer.js') }}"></script>
 <script src="{{ url('scripts/charts.js') }}"></script>
 @livewireScripts
+
+<script>
+    function validateNumberInput(input) {
+        input.value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
+    }
+
+    function maskReal(input) {
+        let value = input.value;
+        value = value.replace(/\D/g, ""); // Remove todos os caracteres não numéricos
+        value = (value / 100).toFixed(2) + ""; // Divide por 100 para obter o valor correto
+        value = value.replace(".", ","); // Substitui o ponto por vírgula
+        input.value = value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1."); // Adiciona pontos a cada 3 dígitos
+    }
+
+    $(document).on('click', '.btn-excluir', function() {
+        return confirm('Deseja realmente excluir este registro?');
+    });
+</script>
 </body>
 </html>

@@ -151,7 +151,7 @@
 <script src="{{ url('vendor/sparkline/index.js') }}"></script>
 
 <!-- App scripts -->
-<script src="{{ url('scripts/homer.js') }}"></script>
+<script src="{{ url('scripts/dashboardr.js') }}"></script>
 <script src="{{ url('scripts/charts.js') }}"></script>
 @livewireScripts
 </body>

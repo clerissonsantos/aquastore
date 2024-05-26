@@ -17,6 +17,7 @@ class ClienteIndex extends Component
 
     public function render()
     {
+        session(['tela_atual' => 'Clientes']);
         $clientes = Cliente::paginate(10);
 
         if ($this->search) {

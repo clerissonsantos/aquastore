@@ -6,7 +6,7 @@
                     <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                     <a class="closebox"><i class="fa fa-times"></i></a>
                 </div>
-                Buscar Cliente
+                Buscar Produtos
             </div>
             <div class="panel-body">
                 <form class="form-horizontal">
@@ -21,8 +21,8 @@
                             <button type="button" class="btn w-xs btn-success" wire:click="$refresh">
                                 <i class="fa fa-search"></i> Pesquisar
                             </button>
-                            <a href="{{ route('clientes.novo') }}" class="btn w-xs btn-info">
-                                <i class="fa fa-plus"></i> Novo Cliente
+                            <a href="{{ route('produtos.novo') }}" class="btn w-xs btn-info">
+                                <i class="fa fa-plus"></i> Novo Produto
                             </a>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
     <div class="col-lg-12">
         <div class="hpanel">
             <div class="panel-heading">
-                Listagem de Clientes
+                Listagem de Produtos
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
@@ -42,29 +42,29 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>CPF</th>
                                 <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>Telefone</th>
+                                <th>Preço Venda</th>
+                                <th>Estoque</th>
+                                <th>Estoque Mínimo</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($clientes as $cliente)
+                        @foreach($produtos as $produto)
                             <tr>
                                 <td>
-                                    <a href="{{ route('clientes.exibir', $cliente->id) }}" class="btn btn-info">
+                                    <a href="{{ route('produtos.exibir', $produto->id) }}" class="btn btn-info">
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
-                                <td>{{ formataCpf($cliente->cpf) }}</td>
-                                <td>{{ $cliente->nome }}</td>
-                                <td>{{ $cliente->email }}</td>
-                                <td>{{ formataTelefone($cliente->telefone) }}</td>
+                                <td>{{ $produto->nome }}</td>
+                                <td>{{ formataDecimal($produto->preco_venda) }}</td>
+                                <td>{{ $produto->estoque }}</td>
+                                <td>{{ $produto->estoque_minimo }}</td>
                             </tr>
                           @endforeach
                         </tbody>
                     </table>
-                    {{ $clientes->links() }}
+                    {{ $produtos->links() }}
                 </div>
             </div>
         </div>

@@ -15,16 +15,19 @@ return new class extends Migration
             $table->string('telefone', 11)->nullable();
             $table->date('data_nascimento')->nullable();
             $table->string('email')->nullable();
+            $table->string('cep', 8)->nullable();
+            $table->string('logradouro')->nullable();
+            $table->string('numero', 5)->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('uf', 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         \Illuminate\Support\Facades\DB::table('clientes')->insert([
-            'nome' => 'Cliente Teste',
-            'cpf' => '07563288457',
-            'telefone' => '83999098936',
-            'data_nascimento' => '1991-05-02',
-            'email' => 'clerisson.web@gmail.com',
+            'nome' => 'CONSUMIDOR',
+            'cpf' => '00000000000',
         ]);
     }
 

@@ -26,3 +26,23 @@ if (! function_exists('formataTelefone')) {
         }
     }
 }
+
+if (! function_exists('formataDecimalDb')) {
+    function formataDecimalDb($valor)
+    {
+        $cleanedValue = preg_replace('/[^\d,]/', '', $valor);
+        $cleanedValue = str_replace(',', '.', $cleanedValue);
+        if (!preg_match('/^\d+(\.\d{1,2})?$/', $cleanedValue)) {
+            return $valor;
+        }
+        return $cleanedValue;
+    }
+}
+
+if (! function_exists('formataDecimal')) {
+    function formataDecimal($valor)
+    {
+        $floatValue = (float) $valor;
+        return number_format($floatValue, 2, ',', '.');
+    }
+}

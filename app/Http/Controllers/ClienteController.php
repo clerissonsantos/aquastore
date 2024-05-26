@@ -9,7 +9,9 @@ use App\Repositories\ClienteRepository;
 class ClienteController extends Controller
 {
     public function __construct(private ClienteRepository $clienteRepository)
-    {}
+    {
+        session(['tela_atual' => 'Clientes']);
+    }
 
     public function show(int $id)
     {
@@ -19,7 +21,7 @@ class ClienteController extends Controller
 
     public function store(ClienteRequest $clienteRequest)
     {
-        $cliente = $this->clienteRepository->salvar($clienteRequest->validated());
-        return redirect()->route('clientes.exibir', $cliente->id);
+        $this->clienteRepository->salvar($clienteRequest->validated());
+        return redirect()->route('clientes.index');
     }
 }
