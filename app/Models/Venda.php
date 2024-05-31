@@ -34,13 +34,6 @@ class Venda extends Model implements ModelInterface
         return $this->hasMany(VendaItem::class);
     }
 
-    protected function descontoValor(): Attribute
-    {
-        return Attribute::make(
-            set: fn (string $value) => formataDecimalDb($value),
-        );
-    }
-
     protected function descontoPercentual(): Attribute
     {
         return Attribute::make(

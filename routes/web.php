@@ -41,8 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/vendas/{venda?}', [VendaController::class, 'principal'])->name('vendas.tela');
     Route::post('/vendas-finalizar}', [VendaController::class, 'finalizar'])->name('vendas.finalizar');
     Route::post('/vendas-salvar', [VendaController::class, 'store'])->name('vendas.salvar');
+    Route::get('/vendas-deletar/{id}', [VendaController::class, 'destroy'])->name('vendas.excluir');
 
     Route::post('/vendas-item', [VendaController::class, 'adicionarProduto'])->name('vendas-item.salvar');
+    Route::post('/vendas-item-deletar', [VendaController::class, 'itemdestroy'])->name('vendas-item.deletar');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

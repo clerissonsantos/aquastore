@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->dateTime('data_pagamento')->nullable();
             $table->string('forma_pagamento')->nullable();
             $table->decimal('desconto_valor')->default(0);
-            $table->decimal('desconto_percentual')->default(0);
+            $table->integer('desconto_percentual')->default(0);
             $table->boolean('finalizada')->default(0);
             $table->softDeletes();
             $table->timestamps();

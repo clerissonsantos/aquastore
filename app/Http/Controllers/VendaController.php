@@ -6,6 +6,7 @@ use App\Http\Requests\VendaItemRequest;
 use App\Http\Requests\VendaRequest;
 use App\Models\Produto;
 use App\Models\Venda;
+use App\Models\VendaItem;
 use App\Repositories\VendaItemRepository;
 use App\Repositories\VendaRepository;
 use Illuminate\Http\Request;
@@ -24,7 +25,6 @@ class VendaController extends Controller
     {
         return view('vendas.principal', [
             'venda' => $venda,
-            'total_itens' => 0
         ]);
     }
 
@@ -45,7 +45,10 @@ class VendaController extends Controller
 
         $this->itemRepository->salvar($vendaItem);
 
-        return view('vendas.venda-itens', ['venda' => Venda::find($request->venda_id)]);
+        return view('vendas.venda-itens', [
+            'venda' => Venda::find($request->venda_id),
+            'totalItens' => 0
+        ]);
     }
 
     public function finalizar(Request $request)
@@ -59,5 +62,25 @@ class VendaController extends Controller
         ]);
 
         return redirect()->route('vendas.tela', Venda::find($request->id));
+    }
+
+    public function itemdestroy(Request $request)
+    {
+        $item = VendaItem::find($request->id);
+        $itemVenda = $item->venda_id;
+        $item->delete();
+
+        return view('vendas.venda-itens', [
+            'venda' => Venda::find($itemVenda),
+            'totalItens' => 0
+        ]);
+    }
+
+    public function destroy(int $vendaId)
+    {
+        $venda = Venda::find($vendaId);
+        $venda->delete();
+
+        return redirect()->route('vendas.tela');
     }
 }
