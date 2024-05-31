@@ -21,6 +21,44 @@
     <link rel="stylesheet" href="{{ url('fonts/pe-icon-7-stroke/css/helper.css') }}">
     <link rel="stylesheet" href="{{ url('styles/style.css') }}">
     @livewireStyles
+
+    <script src="{{ url('vendor/jquery/dist/jquery.min.js') }}"></script>
+    <style>
+        input {
+            text-transform: uppercase;
+        }
+        .ui-widget {
+            list-style: none;      /* Remove o marcador de lista */
+            margin: 0;             /* Remove a margem */
+            padding: 0;
+        }
+        .ui-widget-content {
+            border: 1px solid #cecdcd;
+            width: 500px;
+        }
+        .ui-menu-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            width: auto;
+        }
+
+        .ui-menu-item:hover {
+            background-color: #009dee;
+            color: #fff;
+        }
+
+        .ui-helper-hidden-accessible {
+            display: none;
+        }
+
+        .table {
+            font-size: 14px;
+        }
+    </style>
+</head>
 <body class="light-skin fixed-navbar sidebar-scroll">
 
 <!-- Header -->
@@ -81,7 +119,7 @@
                 <a href="{{ route('produtos.index') }}"> <i class="fa fa-tag text-warning"></i> Produtos</a>
             </li>
             <li>
-                <a href="{{ route('produtos.index') }}"> <i class="fa fa-shopping-cart text-info"></i> Vendas</a>
+                <a href="{{ route('vendas.tela') }}"> <i class="fa fa-shopping-cart text-info"></i> Vendas</a>
             </li>
         </ul>
     </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 0px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 316.469px;"></div><div class="slimScrollRail" style="width: 0px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
@@ -89,22 +127,6 @@
 
 <!-- Main Wrapper -->
 <div id="wrapper">
-
-    <div class="normalheader ">
-        <div class="hpanel">
-            <div class="panel-body">
-                <a class="small-header-action" href="">
-                    <div class="clip-header">
-                        <i class="fa fa-arrow-up"></i>
-                    </div>
-                </a>
-                <h2 class="font-light m-b-xs">
-                    {{ session('tela_atual') ?? 'Dashboard' }}
-                </h2>
-            </div>
-        </div>
-    </div>
-
     <div class="content">
         <div class="row">
             @yield('content')
@@ -122,7 +144,6 @@
 </div>
 
 <!-- Vendor scripts -->
-<script src="{{ url('vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ url('vendor/jquery-ui/jquery-ui.min.js') }}"></script>
 <script src="{{ url('vendor/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ url('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -142,6 +163,10 @@
 @livewireScripts
 
 <script>
+    function formatarReal(valor) {
+        return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
     function validateNumberInput(input) {
         input.value = input.value.replace(/\D/g, ''); // Remove todos os caracteres não numéricos
     }

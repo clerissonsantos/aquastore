@@ -8,6 +8,7 @@ use App\Models\Cliente;
 use App\Models\Produto;
 use App\Repositories\ClienteRepository;
 use App\Repositories\ProdutoRepository;
+use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
@@ -45,5 +46,30 @@ class ProdutoController extends Controller
     {
         $produto->delete();
         return redirect()->route("$this->view.index");
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $produtos = Produto::query()
+            ->when($request->search, fn($query, $search) => $query->where('nome', 'like', "%{$search}%"))
+            ->limit(20)
+            ->get()
+            ->toArray();
+
+        if (empty($produtos)) {
+            return response()->json(['produtos' => [['label' => 'Nenhum produto encontrado', 'value' => '']]]);
+        }
+
+        $produtosAutoComplete = [];
+        foreach ($produtos as $key => $produto) {
+            $produtosAutoComplete[] = [
+                'label' => "{$produto['nome']} -- R$: {$produto['preco_venda']} -- Estoque: {$produto['estoque']}",
+                'value' => "{$produto['nome']}",
+                'produto_id' => $produto['id'],
+                'preco_venda' => $produto['preco_venda'],
+            ];
+        }
+
+        return response()->json(['produtos' => $produtosAutoComplete]);
     }
 }

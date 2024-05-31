@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label>Informação:</label>
-                            <input class="form-control" type="text" wire:model="search">
+                            <input class="form-control" type="text" wire:model="search" wire:keyup.debounce="$refresh">
                         </div>
                     </div>
                     <div class="form-group">
@@ -42,6 +42,7 @@
                         <thead>
                             <tr>
                                 <th></th>
+                                <th>Código</th>
                                 <th>Nome</th>
                                 <th>Preço Venda</th>
                                 <th>Estoque</th>
@@ -56,8 +57,9 @@
                                         <i class="fa fa-eye"></i>
                                     </a>
                                 </td>
+                                <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>
-                                <td>{{ formataDecimal($produto->preco_venda) }}</td>
+                                <td>R$ {{ formataDecimal($produto->preco_venda) }}</td>
                                 <td>{{ $produto->estoque }}</td>
                                 <td>{{ $produto->estoque_minimo }}</td>
                             </tr>

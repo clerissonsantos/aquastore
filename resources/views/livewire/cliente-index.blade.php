@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <div class="col-sm-12">
                             <label>Informação:</label>
-                            <input class="form-control" type="text" wire:model="search">
+                            <input class="form-control" type="text" wire:model="search" wire:keyup.debounce="$refresh">
                         </div>
                     </div>
                     <div class="form-group">

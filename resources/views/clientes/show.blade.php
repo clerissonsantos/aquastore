@@ -56,13 +56,18 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-md-2">
+                                    <div class="col-md-12">
                                         <a href="{{ route('clientes.index') }}" class="btn btn-default">
                                             <i class="fa fa-arrow-left"></i> Voltar
                                         </a>
                                         <button type="submit" class="btn btn-success">
                                             <i class="fa fa-save"></i> Salvar
                                         </button>
+                                        @if(isset($cliente) && $cliente->id)
+                                            <a href="{{ route('clientes.excluir', $cliente->id) }}" class="btn btn-danger btn-excluir">
+                                                <i class="fa fa-trash"></i> Excluir
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

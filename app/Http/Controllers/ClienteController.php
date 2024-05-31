@@ -24,4 +24,11 @@ class ClienteController extends Controller
         $this->clienteRepository->salvar($clienteRequest->validated());
         return redirect()->route('clientes.index');
     }
+
+
+    public function destroy(Cliente $cliente)
+    {
+        $cliente->delete();
+        return redirect()->route("clientes.index");
+    }
 }
