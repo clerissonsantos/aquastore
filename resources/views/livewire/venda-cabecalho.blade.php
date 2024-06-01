@@ -36,7 +36,7 @@
                 <div class=" col-lg-2">
                     <label>Data Venda:</label>
                     <input
-                        @disabled($venda->finalizada)
+                        @disabled($venda && $venda->finalizada)
                         type="datetime-local"
                         class="form-control"
                         value="{{ $venda->data_hora ?? \Illuminate\Support\Carbon::now()->format('Y-m-d H:i') }}"
@@ -48,7 +48,7 @@
                 <div class=" col-lg-10">
                     <label>Cliente:</label>
                     <input
-                        @disabled($venda->finalizada)
+                        @disabled($venda && $venda->finalizada)
                         id="cliente-autocomplete"
                         type="text"
                         placeholder="Digite informações do cliente..."
