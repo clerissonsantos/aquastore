@@ -24,6 +24,21 @@
 
     <script src="{{ url('vendor/jquery/dist/jquery.min.js') }}"></script>
     <style>
+        body {
+            /*color: #fff !important;*/
+            /*color: #3bbace !important;*/
+            color: #4ac8dc !important;
+        }
+
+        .table-striped > tbody > tr:nth-of-type(odd) {
+            background-color: rgb(2, 61, 103) !important;
+        }
+        td {
+            border-top: 1px solid rgb(1, 48, 82) !important;
+        }
+        .panel-body {
+            background-color: rgb(1, 48, 82) !important;
+        }
         input {
             text-transform: uppercase;
         }
@@ -62,16 +77,16 @@
 <body class="light-skin fixed-navbar sidebar-scroll">
 
 <!-- Header -->
-<div id="header">
+<div id="header" style="background-color: rgb(1,32,52)">
     <div class="color-line">
     </div>
-    <div id="logo" class="light-version">
+    <div id="logo" style="background-color: rgb(1,52,87)">
         <span>
             Aqua Store
         </span>
     </div>
-    <nav role="navigation">
-        <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+    <nav role="navigation" >
+        <div class="header-link hide-menu" style="background-color: rgb(1,32,52); border-color: rgb(1,52,87);"><i class="fa fa-bars"></i></div>
         <div class="small-logo">
             <span class="text-primary">AquaStor APP</span>
         </div>
@@ -106,7 +121,7 @@
 </div>
 
 <!-- Navigation -->
-<aside id="menu">
+<aside id="menu" style="background-color: rgb(1,32,52)">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div id="navigation" style="overflow: hidden; width: auto; height: 100%;">
         <ul class="nav" id="side-menu">
             <li>
@@ -132,7 +147,7 @@
 </aside>
 
 <!-- Main Wrapper -->
-<div id="wrapper">
+<div id="wrapper" style="background-color: rgb(1,32,52)">
     <div class="content">
         <div class="row">
             @yield('content')
@@ -140,7 +155,7 @@
     </div>
 
     <!-- Footer-->
-    <footer class="footer">
+    <footer class="footer" style="background-color: rgb(1,52,87); border-top: 1px solid rgb(1,52,87)">
         <span class="pull-right">
             Example text
         </span>
