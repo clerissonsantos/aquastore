@@ -1,5 +1,5 @@
-<html><head>
-
+<html>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,9 +25,23 @@
     <script src="{{ url('vendor/jquery/dist/jquery.min.js') }}"></script>
     <style>
         body {
-            /*color: #fff !important;*/
-            /*color: #3bbace !important;*/
             color: #4ac8dc !important;
+        }
+
+        .bg-dark {
+            background-color: rgb(1,32,52) !important;
+        }
+
+        .bg-dark-medio {
+            background-color: rgb(1,52,87) !important;
+        }
+
+        legend {
+            border-bottom: 1px solid #1d6169 !important;
+        }
+
+        body.light-skin .social-board .hpanel>.panel-footer, body.light-skin .social-board .hpanel>.panel-section {
+            border: none;
         }
 
         .table-striped > tbody > tr:nth-of-type(odd) {
@@ -74,23 +88,23 @@
         }
     </style>
 </head>
-<body class="light-skin fixed-navbar sidebar-scroll">
+<body class="light-skin fixed-navbar sidebar-scroll bg-dark">
 
 <!-- Header -->
-<div id="header" style="background-color: rgb(1,32,52)">
+<div id="header" class="bg-dark-medio">
     <div class="color-line">
     </div>
-    <div id="logo" style="background-color: rgb(1,52,87)">
+    <div id="logo" class="bg-dark-medio">
         <span>
             Aqua Store
         </span>
     </div>
     <nav role="navigation" >
-        <div class="header-link hide-menu" style="background-color: rgb(1,32,52); border-color: rgb(1,52,87);"><i class="fa fa-bars"></i></div>
+        <div class="header-link hide-menu bg-dark-medio" style="border-color: rgb(1,52,87);"><i class="fa fa-bars"></i></div>
         <div class="small-logo">
             <span class="text-primary">AquaStor APP</span>
         </div>
-        <div class="mobile-menu">
+        <div class="mobile-menu bg-dark-medio">
             <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
                 <i class="fa fa-chevron-down"></i>
             </button>
@@ -121,7 +135,7 @@
 </div>
 
 <!-- Navigation -->
-<aside id="menu" style="background-color: rgb(1,32,52)">
+<aside id="menu" class="bg-dark">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div id="navigation" style="overflow: hidden; width: auto; height: 100%;">
         <ul class="nav" id="side-menu">
             <li>
@@ -147,21 +161,12 @@
 </aside>
 
 <!-- Main Wrapper -->
-<div id="wrapper" style="background-color: rgb(1,32,52)">
+<div id="wrapper" class="bg-dark">
     <div class="content">
         <div class="row">
             @yield('content')
         </div>
     </div>
-
-    <!-- Footer-->
-    <footer class="footer" style="background-color: rgb(1,52,87); border-top: 1px solid rgb(1,52,87)">
-        <span class="pull-right">
-            Example text
-        </span>
-        Company 2015-2020
-    </footer>
-
 </div>
 
 <!-- Vendor scripts -->
