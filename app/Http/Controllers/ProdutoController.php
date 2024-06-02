@@ -51,7 +51,8 @@ class ProdutoController extends Controller
     public function autocomplete(Request $request)
     {
         $produtos = Produto::query()
-            ->when($request->search, fn($query, $search) => $query->where('nome', 'like', "%{$search}%"))
+            ->when($request->search, fn($query, $search) => $query->where('nome', 'like', "%{$search}%")
+            ->where('desativado', 0))
             ->limit(20)
             ->get()
             ->toArray();

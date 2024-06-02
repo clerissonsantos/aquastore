@@ -16,9 +16,9 @@
                         </td>
                         <td>
                             <select name="forma_pagamento" class="form-control" @disabled($venda->finalizada)>
-                                <option>DINHEIRO</option>
-                                <option>CARTÃO</option>
-                                <option>PIX</option>
+                                <option {{ $venda->forma_pagamento === 'DINHEIRO' ? 'selected' : null}}>DINHEIRO</option>
+                                <option {{ $venda->forma_pagamento === 'CARTÃO' ? 'selected' : null}}>CARTÃO</option>
+                                <option {{ $venda->forma_pagamento === 'PIX' ? 'selected' : null}}>PIX</option>
                             </select>
                         </td>
                     </tr>
