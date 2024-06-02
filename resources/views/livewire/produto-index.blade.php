@@ -59,7 +59,7 @@
                                 </td>
                                 <td>{{ $produto->id }}</td>
                                 <td>{{ $produto->nome }}</td>
-                                <td>R$ {{ formataDecimal($produto->preco_venda) }}</td>
+                                <td>R$ {{ $produto->preco_venda }}</td>
                                 <td>{{ $produto->estoque }}</td>
                                 <td>{{ $produto->estoque_minimo }}</td>
                             </tr>

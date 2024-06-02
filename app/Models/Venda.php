@@ -41,6 +41,12 @@ class Venda extends Model implements ModelInterface
         );
     }
 
+    public function produtos()
+    {
+        return $this->belongsToMany(Produto::class, 'venda_itens')
+            ->withPivot('quantidade');
+    }
+
     protected function casts()
     {
         return [

@@ -12,7 +12,7 @@ Escolha os produtos:
         <input type="number" id="quantidade" class="form-control" name="quantidade" value="1">
     </div>
     <div class="col-lg-2">
-        <label>Preço Unidade:</label>
+        <label>Preço:</label>
         <input type="text" id="preco_venda" class="form-control" value="0,00">
     </div>
     <div class="col-lg-2">

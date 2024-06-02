@@ -121,6 +121,12 @@
             <li>
                 <a href="{{ route('vendas.tela') }}"> <i class="fa fa-shopping-cart text-info"></i> Vendas</a>
             </li>
+            <li>
+            <li>
+                <a href="#"><span class="nav-label"><i class="fa fa-line-chart text-danger"></i> Relatórios</span><span class="fa arrow"></span> </a>
+                <ul class="nav nav-second-level collapse" aria-expanded="false">
+                    <li><a href="{{ route('relatorios-vendas.listagem') }}">Vendas</a></li>
+                </ul>
         </ul>
     </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 0px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; right: 1px; height: 316.469px;"></div><div class="slimScrollRail" style="width: 0px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
 </aside>

@@ -46,3 +46,10 @@ if (! function_exists('formataDecimal')) {
         return number_format($floatValue, 2, ',', '.');
     }
 }
+
+if (! function_exists('formataDataView')) {
+    function formataDataView($data)
+    {
+        return date('d/m/Y H:i', strtotime($data));
+    }
+}

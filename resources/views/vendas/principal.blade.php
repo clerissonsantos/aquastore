@@ -21,6 +21,7 @@
             var produto_id = $('#produto_id').val();
             var venda_id = $('#venda_id').val();
             var quantidade = $('#quantidade').val();
+            var valorTotal = $('#total_final').val();
 
             if (!produto_id || !venda_id || !quantidade) {
                 alert('Preencha todos os campos!');
@@ -40,7 +41,6 @@
                     $('#vendas-itens').html(data);
                     $('#produto-autocomplete').val('');
                     $('#preco_venda').val('0,00');
-                    $('#total_item').val('0,00');
                     $('#quantidade').val(1);
                 },
                 error: function(xhr, status, error) {
@@ -77,6 +77,7 @@
 
             $('#desconto_reais').empty().text(formatarReal(desconto));
             $('#desconto_valor').val(desconto);
+            $('#total_final').val(totalComDesconto);
             $('#total_final_label').empty().text(formatarReal(totalComDesconto));
         });
 

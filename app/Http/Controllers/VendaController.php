@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\VendaExcluidaEvent;
+use App\Events\VendaFinalizadaEvent;
 use App\Http\Requests\VendaItemRequest;
 use App\Http\Requests\VendaRequest;
 use App\Models\Produto;
@@ -59,7 +61,11 @@ class VendaController extends Controller
             'forma_pagamento' => $request->forma_pagamento,
             'desconto_valor' => $request->desconto_valor,
             'desconto_percentual' => $request->desconto_percentual,
+            'valor_total' => $request->valor_total,
         ]);
+
+        $itens = $this->itemRepository->selectItenAlterarEstoque($request->id);
+        VendaFinalizadaEvent::dispatch($itens);
 
         return redirect()->route('vendas.tela', Venda::find($request->id));
     }
@@ -79,7 +85,11 @@ class VendaController extends Controller
     public function destroy(int $vendaId)
     {
         $venda = Venda::find($vendaId);
-        $venda->delete();
+
+        if ($venda->delete()) {
+            $itens = $this->itemRepository->selectItenAlterarEstoque($vendaId);
+            VendaExcluidaEvent::dispatch($itens);
+        }
 
         return redirect()->route('vendas.tela');
     }
