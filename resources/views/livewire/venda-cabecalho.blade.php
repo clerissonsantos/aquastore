@@ -81,20 +81,9 @@
                 <div class="col-lg-12">
                     <h3>Cliente:
                         @if($venda)
-                            <a href="{{ route('clientes.exibir', $venda->cliente_id) }}" target="_blank" class="text-info">{{ $venda->cliente->nome ?? 'Nenhum cliente selecionado' }} - {{ $venda->cliente->cpf ?? '-' }}</a>
+                            <a href="{{ route('clientes.exibir', $venda->cliente_id) }}" target="_blank" class="text-success">{{ $venda->cliente->nome ?? 'Nenhum cliente selecionado' }} - {{ $venda->cliente->cpf ?? '-' }}</a>
                         @endif
                     </h3>
-{{--                    Telefone: <strong>{{ $venda->cliente->telefone ?? '-' }}</strong>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4">--}}
-{{--                    Email: <strong>{{ $venda->cliente->email ?? '-' }}</strong><br>--}}
-{{--                    CEP: <strong>{{ $venda->cliente->cep ?? '-' }}</strong><br>--}}
-{{--                    Rua: <strong>{{ $venda ? $venda->cliente->logradouro .', ' . $venda->cliente->numero : '-' }}</strong>--}}
-{{--                </div>--}}
-{{--                <div class="col-lg-4">--}}
-{{--                    Bairro: <strong>{{ $venda->cliente->bairro ?? '-' }}</strong><br>--}}
-{{--                    Cidade: <strong>{{ $venda->cliente->cidade ?? '-' }}</strong><br>--}}
-{{--                    UF: <strong>{{ $venda->cliente->uf ?? '-' }}</strong>--}}
                 </div>
             </fieldset>
         </div>

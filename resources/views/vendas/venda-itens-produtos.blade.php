@@ -1,6 +1,6 @@
 <div class="panel-body col-lg-12" style="margin-top: 10px">
     <div class="table-responsive" style="margin-top: 25px">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
             <tr>
                 <th>Produto</th>

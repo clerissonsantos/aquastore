@@ -57,12 +57,12 @@
                                         </button>
                                         @if(isset($produto))
                                             @if(!$produto->desativado)
-                                                <a href="{{ route('produtos.desativar', ['id' => $produto->id, 'status' => 1]) }}" class="btn btn-info">
-                                                    <i class="fa fa-warning"></i> Ativar Produto
+                                                <a href="{{ route('produtos.desativar', ['id' => $produto->id, 'status' => 1]) }}" class="btn btn-warning">
+                                                    <i class="fa fa-warning"></i> Desativar Produto
                                                 </a>
                                             @else
-                                                <a href="{{ route('produtos.desativar', ['id' => $produto->id, 'status' => 0]) }}" class="btn btn-warning">
-                                                    <i class="fa fa-warning"></i> Desativar Produto
+                                                <a href="{{ route('produtos.desativar', ['id' => $produto->id, 'status' => 0]) }}" class="btn btn-info">
+                                                    <i class="fa fa-warning"></i> Ativar Produto
                                                 </a>
                                             @endif
                                             @if($produto->id)
