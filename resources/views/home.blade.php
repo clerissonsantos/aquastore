@@ -96,13 +96,13 @@
     </div>
     <div id="logo" class="bg-dark-medio">
         <span>
-            Aqua Store
+            Loja Fácil App
         </span>
     </div>
     <nav role="navigation" >
         <div class="header-link hide-menu bg-dark-medio" style="border-color: rgb(1,52,87);"><i class="fa fa-bars"></i></div>
         <div class="small-logo">
-            <span class="text-primary">AquaStor APP</span>
+            <span class="text-primary">Loja Fácil App</span>
         </div>
         <div class="mobile-menu bg-dark-medio">
             <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
