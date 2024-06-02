@@ -1,34 +1,93 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html>
+<head>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('E-mail:')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+    <!-- Page title -->
+    <title>HOMER | WebApp admin theme</title>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
+
+    <!-- Vendor styles -->
+    <link rel="stylesheet" href="{{ url('vendor/fontawesome/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ url('vendor/metisMenu/dist/metisMenu.css') }}">
+    <link rel="stylesheet" href="{{ url('vendor/animate.css/animate.css') }}">
+    <link rel="stylesheet" href="{{ url('vendor/bootstrap/dist/css/bootstrap.css') }}">
+
+    <!-- App styles -->
+    <link rel="stylesheet" href="{{ url('fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css') }}">
+    <link rel="stylesheet" href="{{ url('fonts/pe-icon-7-stroke/css/helper.css') }}">
+    <link rel="stylesheet" href="{{ url('styles/style.css') }}">
+    @livewireStyles
+
+    <script src="{{ url('vendor/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ url('vendor/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ url('vendor/slimScroll/jquery.slimscroll.min.js') }}"></script>
+    <script src="{{ url('vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url('vendor/jquery-flot/jquery.flot.js') }}"></script>
+    <script src="{{ url('vendor/jquery-flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ url('vendor/jquery-flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ url('vendor/flot.curvedlines/curvedLines.js') }}"></script>
+    <script src="{{ url('vendor/jquery.flot.spline/index.js') }}"></script>
+    <script src="{{ url('vendor/metisMenu/dist/metisMenu.min.js') }}"></script>
+    <script src="{{ url('vendor/iCheck/icheck.min.js') }}"></script>
+    <script src="{{ url('vendor/peity/jquery.peity.min.js') }}"></script>
+    <script src="{{ url('vendor/sparkline/index.js') }}"></script>
+
+    <script src="{{ url('scripts/homer.js') }}"></script>
+    <script src="{{ url('scripts/charts.js') }}"></script>
+    @livewireScripts
+
+
+    <style>
+        body {
+            color: #4ac8dc !important;
+        }
+        .bg-dark {
+            background-color: rgb(1,32,52) !important;
+        }
+
+        .bg-dark-medio {
+            background-color: rgb(1,52,87) !important;
+        }
+    </style>
+</head>
+<body class="blank bg-dark">
+
+<div class="login-container bg-dark">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center m-b-md">
+                <img src="/images/logo2.jpeg" height="300" width="300">
+                <h3>Faça o login para ter acesso</h3>
+            </div>
+            <div class="hpanel bg-dark-medio">
+                <div class="panel-body bg-dark-medio" style="border: none;">
+                    <form method="post" id="loginForm" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <label class="control-label" for="username">Email</label>
+                            <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="email" id="username" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="password">Senha</label>
+                            <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                        </div>
+                        <button class="btn btn-success btn-block">Login</button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Senha:')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <strong>AquaStore</strong>
         </div>
-
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+</div>
+</body>
+</html>
