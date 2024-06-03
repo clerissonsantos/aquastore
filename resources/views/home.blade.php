@@ -8,7 +8,7 @@
     <title>Loja Fácil App</title>
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
+    <link rel="shortcut icon" href="{{ asset('icons/favicon.ico') }}" type="image/ico"/>
 
     <!-- Vendor styles -->
     <link rel="stylesheet" href="{{ url('vendor/fontawesome/css/font-awesome.css') }}">
