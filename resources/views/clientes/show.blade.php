@@ -52,7 +52,7 @@
                                     </div>
                                     <div class="col-md-1">
                                         <label>UF: </label>
-                                        <input type="text" class="form-control" name="uf" value="{{ $cliente->uf ?? null }}">
+                                        <input type="text" class="form-control" name="uf" maxlength="2" value="{{ $cliente->uf ?? null }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
