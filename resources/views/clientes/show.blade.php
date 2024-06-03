@@ -56,7 +56,7 @@
                                         <label>UF: </label>
                                         <input type="text" class="form-control" name="uf" maxlength="2" value="{{ $cliente->uf ?? null }}">
                                     </div>
-                                    <div class="col-md-4 col-xs-12">
+                                    <div class="col-md-3 col-xs-12">
                                         <label>Complemento: </label>
                                         <input type="text" class="form-control" name="complemento" value="{{ $cliente->complemento ?? null }}">
                                     </div>
