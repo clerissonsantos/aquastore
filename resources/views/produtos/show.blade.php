@@ -16,33 +16,33 @@
                                         <label>Nome*: </label>
                                         <input type="text" id="nome" class="form-control" required name="nome" value="{{ $produto->nome ?? null }}">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-6">
                                         <label>Preço Compra: </label>
                                         <input type="text" id="preco_compra" oninput="maskReal(this)" class="form-control" name="preco_compra" value="{{ $produto->preco_compra ?? '0,00' }}">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-6">
                                         <label>Lucro(%): </label>
                                         <input type="text" id="percentual_lucro" oninput="maskReal(this)" class="form-control" name="percentual_lucro" value="{{ $produto->percentual_lucro ?? '0,00' }}">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-6">
                                         <label>Preço Sugerido: </label>
                                         <input disabled type="text" id="preco_venda" class="form-control" value="0,00">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-6">
                                         <label>Preço Venda: </label>
                                         <input type="text" oninput="maskReal(this)" class="form-control" name="preco_venda" value="{{ $produto->preco_venda ?? '0,00' }}">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-12">
                                         <label>Data Validade: </label>
                                         <input type="date" class="form-control" name="validade" value="{{ $produto->validade ?? null }}">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-6">
                                         <label>Estoque: </label>
                                         <input type="number" class="form-control" name="estoque" value="{{ $produto->estoque ?? 0 }}">
                                     </div>
-                                    <div class="col-md-2">
+                                    <div class="col-md-2 col-xs-6">
                                         <label>Estoque Mínimo: </label>
                                         <input type="number" class="form-control" name="estoque_minimo" value="{{ $produto->estoque_minimo ?? 0 }}">
                                     </div>

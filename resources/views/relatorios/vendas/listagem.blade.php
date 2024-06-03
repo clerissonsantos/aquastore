@@ -14,11 +14,11 @@
                         <div class="form-group">
                             <input type="hidden" name="id" value="{{ $produto->id ?? null }}">
                             {{ csrf_field() }}
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-xs-6">
                                 <label>Data Inicio: </label>
                                 <input type="date" class="form-control" name="data_inicio" value="{{ $parametros['data_inicio'] ?? null }}">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-xs-6">
                                 <label>Data Fim: </label>
                                 <input type="date" class="form-control" name="data_fim" value="{{ $parametros['data_fim'] ?? null }}">
                             </div>
@@ -26,7 +26,7 @@
                                 <label>Cliente: </label>
                                 <input type="text" class="form-control" name="cliente" value="{{ $parametros['cliente'] ?? null }}">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-xs-6">
                                 <label>Forma Pagamento: </label>
                                 <select name="forma_pagamento" class="form-control">
                                     <option {{ empty($parametros['forma_pagamento']) ? 'selected' : null }}>TODAS</option>
@@ -35,7 +35,7 @@
                                     <option {{ isset($parametros['forma_pagamento']) && $parametros['forma_pagamento'] === 'PIX' ? 'selected' : null }} >PIX</option>
                                 </select>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-3 col-xs-6">
                                 <label>Finalizadas: </label>
                                 <select name="finalizadas" class="form-control">
                                     <option {{ empty($parametros['finalizadas']) ? 'selected' : null }}>TODAS</option>
