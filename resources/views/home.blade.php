@@ -86,6 +86,16 @@
         .table {
             font-size: 14px;
         }
+
+        #wrapper {
+            -webkit-box-shadow: inset 20px 0px 21px -25px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset 20px 0px 21px -25px rgba(0,0,0,0.75);
+            box-shadow: inset 20px 0px 21px -25px rgba(0,0,0,0.75);
+        }
+
+        .profile-picture{
+            padding: 20px 15px 20px 5px;
+        }
     </style>
 </head>
 <body class="light-skin fixed-navbar sidebar-scroll bg-dark">
@@ -131,7 +141,18 @@
 <!-- Navigation -->
 <aside id="menu" class="bg-dark">
     <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;"><div id="navigation" style="overflow: hidden; width: auto; height: 100%;">
-        <ul class="nav" id="side-menu">
+        <div>
+            <div class="profile-picture">
+                <a href="{{ route('home') }}">
+                    <img src="images/logo2.jpeg" height="175" width="175" class="img-circle m-b" alt="logo">
+                </a>
+                <small>Bem vindo</small>
+                <div class="stats-label text-warning">
+                    <span class="font-extra-bold font-uppercase">{{ auth()->user()->name }}</span>
+                </div>
+            </div>
+        </div>
+        <ul class="nav" id="side-menu" style="padding-right: 5px;">
             <li>
                 <a href="{{ route('home') }}"> <span class="nav-label"> <i class="fa fa-home text-danger"></i> Dashboard</span></a>
             </li>

@@ -39,7 +39,7 @@ return new class extends Migration
         });
 
         DB::table('users')->insert([
-            'name' => 'Admin',
+            'name' => 'Clerisson Santos',
             'email' => 'adm@gmail.com',
             'password' => Hash::make('12345678'),
         ]);
