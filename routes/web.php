@@ -14,7 +14,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
         session(['tela_atual' => 'Dashboard']);
-        return view('home');
+        return view('dashboard');
     })->name('home');
 
     Route::get('/clientes', function (){
