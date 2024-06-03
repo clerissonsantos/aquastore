@@ -102,7 +102,7 @@
     <nav role="navigation" >
         <div class="header-link hide-menu bg-dark-medio" style="border-color: rgb(1,52,87);"><i class="fa fa-bars"></i></div>
         <div class="small-logo">
-            <span class="text-primary">Loja Fácil App</span>
+            <span class="text-primary" style="color: #fff;">Loja Fácil App</span>
         </div>
         <div class="mobile-menu bg-dark-medio">
             <button type="button" class="navbar-toggle mobile-menu-toggle" data-toggle="collapse" data-target="#mobile-collapse">
@@ -111,13 +111,7 @@
             <div class="collapse mobile-navbar" id="mobile-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a class="" href="login.html">Login</a>
-                    </li>
-                    <li>
-                        <a class="" href="login.html">Logout</a>
-                    </li>
-                    <li>
-                        <a class="" href="profile.html">Profile</a>
+                        <a href="{{ route('logout') }}">Logout</a>
                     </li>
                 </ul>
             </div>
