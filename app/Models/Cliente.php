@@ -17,6 +17,7 @@ class Cliente extends Model implements ModelInterface
         'telefone',
         'cep',
         'logradouro',
+        'complemento',
         'numero',
         'bairro',
         'cidade',

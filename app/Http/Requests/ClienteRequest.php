@@ -21,6 +21,7 @@ class ClienteRequest extends FormRequest
             'bairro' => ['nullable', 'string'],
             'cidade' => ['nullable', 'string'],
             'uf' => ['nullable', 'string'],
+            'complemento' => ['nullable', 'string'],
         ];
     }
 
