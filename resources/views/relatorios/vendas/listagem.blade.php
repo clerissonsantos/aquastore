@@ -27,7 +27,7 @@
                                 <input type="text" class="form-control" name="cliente" value="{{ $parametros['cliente'] ?? null }}">
                             </div>
                             <div class="col-md-2 col-xs-6">
-                                <label>Forma Pagamento: </label>
+                                <label>Pagamento: </label>
                                 <select name="forma_pagamento" class="form-control">
                                     <option {{ empty($parametros['forma_pagamento']) ? 'selected' : null }}>TODAS</option>
                                     <option {{ isset($parametros['forma_pagamento']) && $parametros['forma_pagamento'] === 'DINHEIRO' ? 'selected' : null }}>DINHEIRO</option>
