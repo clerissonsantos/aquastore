@@ -81,7 +81,7 @@
             $('#total_final_label').empty().text(formatarReal(totalComDesconto));
         });
 
-        $(document).on('keyup', '#quantidade', function(e) {
+        $(document).on('keyup, blur, change', '#quantidade', function(e) {
             var quantidade = parseFloat($(this).val() || 0);
             var preco = parseFloat($('#preco_venda').val().replace(".", "").replace(",", ".") || 0);
             var total = quantidade * preco;
