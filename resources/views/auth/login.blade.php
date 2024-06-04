@@ -88,7 +88,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-            <strong>AquaStore</strong>
+            <strong>Loja Fácil App</strong>
         </div>
     </div>
 </div>
