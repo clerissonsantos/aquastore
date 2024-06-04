@@ -72,7 +72,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label class="control-label" for="username">Email</label>
-                            <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="email" id="username" class="form-control">
+                            <input type="email" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="email" id="username" class="form-control">
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                         <div class="form-group">
