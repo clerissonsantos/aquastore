@@ -36,7 +36,7 @@
                                     </div>
                                     <div class="col-md-2 col-xs-6">
                                         <label>CEP: </label>
-                                        <input type="text" class="form-control" maxlength="8" oninput="validateNumberInput(this)" name="cep" value="{{ $cliente->cep ?? null }}">
+                                        <input id="cep" type="text" class="form-control" maxlength="8" oninput="validateNumberInput(this)" name="cep" value="{{ $cliente->cep ?? null }}">
                                     </div>
                                     <div class="col-md-4">
                                         <label>Endereço: </label>
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="col-md-2 col-xs-6">
                                         <label>Número: </label>
-                                        <input type="text" class="form-control" oninput="validateNumberInput(this)" name="numero" value="{{ $cliente->numero ?? null }}">
+                                        <input id="numero" type="text" class="form-control" oninput="validateNumberInput(this)" name="numero" value="{{ $cliente->numero ?? null }}">
                                     </div>
                                     <div class="col-md-2 col-xs-6">
                                         <label>Cidade: </label>
@@ -83,4 +83,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#cep').change(function() {
+                var cep = $(this).val();
+
+                if (cep.length === 8) {
+                    $.get('https://viacep.com.br/ws/' + cep + '/json/', function(data) {
+                        $('input[name=logradouro]').val(data.logradouro);
+                        $('input[name=cidade]').val(data.localidade);
+                        $('input[name=uf]').val(data.uf);
+                        $('#numero').focus();
+                    });
+                }
+            });
+        });
+    </script>
 @endsection
