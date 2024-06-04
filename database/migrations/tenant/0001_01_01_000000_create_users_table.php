@@ -40,8 +40,8 @@ return new class extends Migration
 
         DB::table('users')->insert([
             'name' => 'Clerisson Santos',
-            'email' => 'adm@gmail.com',
-            'password' => Hash::make('12345678'),
+            'email' => 'clerisson.web@gmail.com',
+            'password' => Hash::make('@#daS'),
         ]);
     }
 
