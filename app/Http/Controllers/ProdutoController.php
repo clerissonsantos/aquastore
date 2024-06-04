@@ -8,13 +8,17 @@ use App\Models\Cliente;
 use App\Models\Produto;
 use App\Repositories\ClienteRepository;
 use App\Repositories\ProdutoRepository;
+use App\Repositories\VendaItemRepository;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
     protected string $view = 'produtos';
 
-    public function __construct(private ProdutoRepository $repository)
+    public function __construct(
+        private ProdutoRepository $repository,
+        private VendaItemRepository $vendaItemrepository,
+    )
     {
         session(['tela_atual' => ucfirst($this->view)]);
     }
@@ -44,7 +48,16 @@ class ProdutoController extends Controller
 
     public function destroy(Produto $produto)
     {
-        $produto->delete();
+        $produtoAtivo = $this->vendaItemrepository->produtoComVendaAtiva($produto->id);
+
+        if (empty($produtoAtivo)) {
+            $produto->delete();
+        } else {
+            session()->flash('dialog', [
+                'warning' => 'Este produto não pode ser excluído pois está vinculado a uma venda ativa',
+            ]);
+        }
+
         return redirect()->route("$this->view.index");
     }
 

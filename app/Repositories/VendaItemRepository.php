@@ -11,6 +11,11 @@ class VendaItemRepository extends AbstratcRepository
     public function __construct(protected VendaItem $model)
     {}
 
+    public function produtoComVendaAtiva(int $produtoId)
+    {
+        return $this->model->where('produto_id', $produtoId)->first();
+    }
+
     public static function itensMaisVendidosDoMes(string $mes = '')
     {
         if (empty($mes)) {

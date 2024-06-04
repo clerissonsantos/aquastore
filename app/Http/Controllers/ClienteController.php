@@ -8,7 +8,9 @@ use App\Repositories\ClienteRepository;
 
 class ClienteController extends Controller
 {
-    public function __construct(private ClienteRepository $clienteRepository)
+    public function __construct(
+        private ClienteRepository $clienteRepository
+    )
     {
         session(['tela_atual' => 'Clientes']);
     }
@@ -25,10 +27,18 @@ class ClienteController extends Controller
         return redirect()->route('clientes.index');
     }
 
-
     public function destroy(Cliente $cliente)
     {
-        $cliente->delete();
+        $clienteAtivo = $this->clienteRepository->clienteComVendaAtiva($cliente->id);
+
+        if (empty($clienteAtivo)) {
+            $cliente->delete();
+        } else {
+            session()->flash('dialog', [
+                'warning' => 'Este Cliente não pode ser excluído pois está vinculado a uma venda ativa',
+            ]);
+        }
+
         return redirect()->route("clientes.index");
     }
 }

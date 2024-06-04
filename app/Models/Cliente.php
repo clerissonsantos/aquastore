@@ -23,4 +23,9 @@ class Cliente extends Model implements ModelInterface
         'cidade',
         'uf',
     ];
+
+    public function vendas()
+    {
+        return $this->hasMany(Venda::class);
+    }
 }
