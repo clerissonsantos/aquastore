@@ -64,6 +64,7 @@
             <div class="text-center m-b-md">
                 <img src="/images/logo-novo.png" height="300" width="300">
                 <h3>Faça o login para ter acesso</h3>
+                <x-auth-session-status class="mb-4" :status="session('status')" />
             </div>
             <div class="hpanel bg-dark-medio">
                 <div class="panel-body bg-dark-medio" style="border: none;">
@@ -72,10 +73,12 @@
                         <div class="form-group">
                             <label class="control-label" for="username">Email</label>
                             <input type="text" placeholder="example@gmail.com" title="Please enter you username" required="" value="" name="email" id="username" class="form-control">
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="password">Senha</label>
                             <input type="password" title="Please enter your password" placeholder="******" required="" value="" name="password" id="password" class="form-control">
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
                         </div>
                         <button class="btn btn-success btn-block">Login</button>
                     </form>
