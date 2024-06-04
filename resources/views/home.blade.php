@@ -144,7 +144,7 @@
         <div>
             <div class="profile-picture">
                 <a href="{{ route('home') }}">
-                    <img src="/images/logo-novo.png" height="175" width="175" class="img-circle m-b" alt="logo">
+                    <img src="/images/logo-novo.png" height="175" width="175" class="m-b" alt="logo">
                 </a>
                 <small>Bem vindo</small>
                 <div class="stats-label text-warning">
