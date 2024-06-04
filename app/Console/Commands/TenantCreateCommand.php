@@ -14,6 +14,6 @@ class TenantCreateCommand extends Command
     public function handle(): void
     {
         $tenant1 = Tenant::create(['id' => $this->argument('name')]);
-        $tenant1->domains()->create(['domain' => $this->argument('name') . '.lojafacilapp.com.br']);
+        $tenant1->domains()->create(['domain' => $this->argument('name') . '.localhost']);
     }
 }
