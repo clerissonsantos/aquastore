@@ -62,7 +62,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="text-center m-b-md">
-                <img src="/images/logo2.jpeg" height="300" width="300">
+                <img src="/images/logo-novo.png" height="300" width="300">
                 <h3>Faça o login para ter acesso</h3>
             </div>
             <div class="hpanel bg-dark-medio">
