@@ -67,6 +67,10 @@ class VendaController extends Controller
         $itens = $this->itemRepository->selectItenAlterarEstoque($request->id);
         VendaFinalizadaEvent::dispatch($itens);
 
+        session()->flash('dialog', [
+            'success' => 'Venda finalizada com sucesso!'
+        ]);
+
         return redirect()->route('vendas.tela', Venda::find($request->id));
     }
 

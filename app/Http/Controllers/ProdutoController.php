@@ -32,6 +32,9 @@ class ProdutoController extends Controller
     public function store(ProdutoRequest $request)
     {
         $this->repository->salvar($request->validated());
+        session()->flash('dialog', [
+            'success' => 'Produto cadastrado com sucesso!'
+        ]);
         return redirect()->route("$this->view.index");
     }
 

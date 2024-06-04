@@ -24,6 +24,9 @@ class ClienteController extends Controller
     public function store(ClienteRequest $clienteRequest)
     {
         $this->clienteRepository->salvar($clienteRequest->validated());
+        session()->flash('dialog', [
+            'success' => 'Cliente cadastrado com sucesso!'
+        ]);
         return redirect()->route('clientes.index');
     }
 
