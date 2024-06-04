@@ -15,6 +15,6 @@ class TenantCreateCommand extends Command
     {
         $tenant1 = Tenant::create(['id' => $this->argument('name')]);
         $tenant1->domains()->create(['domain' => $this->argument('name') . env('APP_DOMAIN', 'localhost')]);
-        $this->call('php aritsan tenants:migrate');
+        $this->call('php artisan tenants:migrate');
     }
 }
