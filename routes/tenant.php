@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Middleware\ContextMiddleware;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -20,6 +21,14 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
     ContextMiddleware::class
 ])->group(function () {
+    Route::get('login2', function(){
+        return Socialite::driver('google')->redirect();
+    })->name('login');
+
+    Route::get('login-callback', function(){
+        $user = Socialite::driver('github')->user();
+        dd($user);
+    });
     Route::get('login', [AuthenticatedSessionController::class, 'create'])->name('login');
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 });
