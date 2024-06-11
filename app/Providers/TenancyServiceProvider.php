@@ -14,6 +14,7 @@ use Stancl\Tenancy\Jobs;
 use Stancl\Tenancy\Listeners;
 use Stancl\Tenancy\Middleware;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
+use Stancl\Tenancy\Middleware\InitializeTenancyBySubdomain;
 
 class TenancyServiceProvider extends ServiceProvider
 {
@@ -105,6 +106,11 @@ class TenancyServiceProvider extends ServiceProvider
         $this->mapRoutes();
 
         $this->makeTenancyMiddlewareHighestPriority();
+
+        InitializeTenancyBySubdomain::$onFail =
+            function () {
+                return redirect('site.lojafacilapp.com.br');
+            };
     }
 
     protected function bootEvents()
@@ -145,7 +151,7 @@ class TenancyServiceProvider extends ServiceProvider
             Middleware\PreventAccessFromCentralDomains::class,
 
             InitializeTenancyByDomain::class,
-            Middleware\InitializeTenancyBySubdomain::class,
+            InitializeTenancyBySubdomain::class,
             Middleware\InitializeTenancyByDomainOrSubdomain::class,
             Middleware\InitializeTenancyByPath::class,
             Middleware\InitializeTenancyByRequestData::class,
