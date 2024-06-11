@@ -108,7 +108,7 @@ class TenancyServiceProvider extends ServiceProvider
         $this->makeTenancyMiddlewareHighestPriority();
 
         \Stancl\Tenancy\Middleware\InitializeTenancyByDomain::$onFail = function ($exception, $request, $next) {
-            return redirect('https://site.lojafacilapp.com.br/');
+            return view('urlerror');
         };
     }
 
