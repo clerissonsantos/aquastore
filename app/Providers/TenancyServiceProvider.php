@@ -107,10 +107,9 @@ class TenancyServiceProvider extends ServiceProvider
 
         $this->makeTenancyMiddlewareHighestPriority();
 
-        InitializeTenancyBySubdomain::$onFail =
-            function () {
-                return redirect('site.lojafacilapp.com.br');
-            };
+        \Stancl\Tenancy\Middleware\InitializeTenancyByDomain::$onFail = function ($exception, $request, $next) {
+            return redirect('https://site.lojafacilapp.com.br/');
+        };
     }
 
     protected function bootEvents()
