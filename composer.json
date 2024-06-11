@@ -10,6 +10,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.5",
         "marvinlabs/laravel-discord-logger": "^1.4",
+        "sentry/sentry-laravel": "^4.5",
         "stancl/tenancy": "^3.8"
     },
     "require-dev": {

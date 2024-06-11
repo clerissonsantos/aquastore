@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Illuminate\Http\Request;
+use Sentry\Laravel\Integration;
 use Stancl\Tenancy\Exceptions\TenantCouldNotBeIdentifiedOnDomainException;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -18,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append(UpperCustomMiddleware::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
+        Integration::handles($exceptions);
         $exceptions->render(function (TenantCouldNotBeIdentifiedOnDomainException $e, Request $request) {
             return view('urlerror');
         });
